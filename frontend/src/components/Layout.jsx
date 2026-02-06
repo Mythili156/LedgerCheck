@@ -5,7 +5,7 @@ import { LayoutDashboard, FileText, Settings, LogOut, Menu, X, Bell, User, Globe
 import { Link, useLocation } from 'react-router-dom';
 
 const Layout = ({ children, user, onLogout }) => {
-    const { language, changeLanguage, t } = useLanguage();
+    const { language, setLanguage, t } = useLanguage();
     const { currency, changeCurrency } = useCurrency();
     const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Default open on desktop
     const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
@@ -101,9 +101,9 @@ const Layout = ({ children, user, onLogout }) => {
 
                             {isLangMenuOpen && (
                                 <div className="absolute right-0 top-full mt-2 w-32 bg-white rounded-lg shadow-lg border border-slate-100 py-1 z-50">
-                                    <button onClick={() => changeLanguage('en')} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">English</button>
-                                    <button onClick={() => changeLanguage('ta')} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Tamil</button>
-                                    <button onClick={() => changeLanguage('hi')} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Hindi</button>
+                                    <button onClick={() => setLanguage('en')} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">English</button>
+                                    <button onClick={() => setLanguage('ta')} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Tamil</button>
+                                    <button onClick={() => setLanguage('hi')} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Hindi</button>
                                 </div>
                             )}
                         </div>
