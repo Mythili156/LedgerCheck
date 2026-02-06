@@ -1,8 +1,11 @@
 import axios from 'axios';
 
 // Create an axios instance
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+console.log("🔌 Connecting to API:", baseURL); // DEBUG: Check what URL we are using!
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8000',
+    baseURL: baseURL,
     headers: {
         'Content-Type': 'application/json',
     },
