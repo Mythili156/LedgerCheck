@@ -7,7 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
-    const { t, language, setLanguage } = useLanguage();
+    const { t, language, changeLanguage } = useLanguage();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -43,10 +43,6 @@ const Register = () => {
     };
 
     const toggleLangMenu = () => setIsLangMenuOpen(!isLangMenuOpen);
-    const changeLanguage = (lang) => {
-        setLanguage(lang);
-        setIsLangMenuOpen(false);
-    };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-slate-50 relative overflow-hidden font-sans">
@@ -69,9 +65,9 @@ const Register = () => {
                     </button>
                     {isLangMenuOpen && (
                         <div className="absolute right-0 top-full mt-2 w-32 bg-white rounded-lg shadow-lg border border-slate-100 py-1 z-50">
-                            <button onClick={() => changeLanguage('en')} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">English</button>
-                            <button onClick={() => changeLanguage('ta')} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Tamil</button>
-                            <button onClick={() => changeLanguage('hi')} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Hindi</button>
+                            <button onClick={() => { changeLanguage('en'); toggleLangMenu(); }} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">English</button>
+                            <button onClick={() => { changeLanguage('ta'); toggleLangMenu(); }} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Tamil</button>
+                            <button onClick={() => { changeLanguage('hi'); toggleLangMenu(); }} className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Hindi</button>
                         </div>
                     )}
                 </div>
