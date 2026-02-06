@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LanguageProvider } from './context/LanguageContext';
+
 import { CurrencyProvider } from './context/CurrencyContext.jsx';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
@@ -40,18 +40,17 @@ const App = () => {
   };
 
   return (
-    <LanguageProvider>
-      <CurrencyProvider>
-        <Router>
-          <Routes>
-            <Route path="/login" element={!isAuthenticated ? <Login onLogin={handleLogin} /> : <Navigate to="/" />} />
-            <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/" />} />
-            <Route path="/" element={isAuthenticated ? <Layout user={user} onLogout={handleLogout}><Dashboard /></Layout> : <Navigate to="/login" />} />
-            <Route path="/reports" element={isAuthenticated ? <Layout user={user} onLogout={handleLogout}><Reports /></Layout> : <Navigate to="/login" />} />
-          </Routes>
-        </Router>
-      </CurrencyProvider>
-    </LanguageProvider>
+
+    <CurrencyProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={!isAuthenticated ? <Login onLogin={handleLogin} /> : <Navigate to="/" />} />
+          <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/" />} />
+          <Route path="/" element={isAuthenticated ? <Layout user={user} onLogout={handleLogout}><Dashboard /></Layout> : <Navigate to="/login" />} />
+          <Route path="/reports" element={isAuthenticated ? <Layout user={user} onLogout={handleLogout}><Reports /></Layout> : <Navigate to="/login" />} />
+        </Routes>
+      </Router>
+    </CurrencyProvider>
   );
 };
 

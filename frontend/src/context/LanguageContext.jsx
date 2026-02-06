@@ -7,6 +7,11 @@ export const LanguageProvider = ({ children }) => {
     // Initialize from localStorage or default to 'en'
     const [language, setLanguage] = useState(localStorage.getItem('app_language') || 'en');
 
+    // DEBUG: Confirm Provider Version
+    React.useEffect(() => {
+        console.log("Context Loaded: changeLanguage Available");
+    }, []);
+
     const changeLanguage = (lang) => {
         setLanguage(lang);
         localStorage.setItem('app_language', lang);
