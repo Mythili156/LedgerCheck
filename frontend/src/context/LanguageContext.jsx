@@ -4,14 +4,20 @@ import { translations } from '../translations';
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-    const [language, setLanguage] = useState('en');
+    // Initialize from localStorage or default to 'en'
+    const [language, setLanguage] = useState(localStorage.getItem('app_language') || 'en');
+
+    const changeLanguage = (lang) => {
+        setLanguage(lang);
+        localStorage.setItem('app_language', lang);
+    };
 
     const t = (key) => {
         return translations[language][key] || key;
     };
 
     return (
-        <LanguageContext.Provider value={{ language, setLanguage, t }}>
+        <LanguageContext.Provider value={{ language, setLanguage, changeLanguage, t }}>
             {children}
         </LanguageContext.Provider>
     );
