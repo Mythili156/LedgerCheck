@@ -1,0 +1,30 @@
+# -- Dependencies --
+node_modules/
+venv/
+__pycache__/
+*.pyc
+
+# -- Environment Variables (Critical) --
+.env
+.env.production
+.env.local
+
+# -- Build Output --
+dist/
+build/
+*.egg-info/
+
+# -- Database --
+*.db
+*.sqlite3
+*.sqlite
+instance/
+
+# -- IDE & System --
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# -- Logs --
+*.log
