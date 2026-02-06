@@ -1,16 +1,63 @@
-# React + Vite
+# LedgerCheck - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the React-based user interface for the LedgerCheck application. It handles user interactions, file uploads, and visualizing financial data.
 
-Currently, two official plugins are available:
+## 🚀 Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
+*   Node.js (v18 or higher)
+*   npm or yarn
 
-## React Compiler
+### Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1.  Navigate to the directory:
+    ```bash
+    cd frontend
+    ```
 
-## Expanding the ESLint configuration
+2.  Install dependencies:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Development Server
+
+Start the local development server:
+```bash
+npm run dev
+```
+The app will be available at [http://localhost:5173](http://localhost:5173).
+
+## 🌍 Environment Variables
+
+Create a file named `.env` in the `frontend` folder if you need custom configurations.
+
+| Variable | Description | Default |
+| :--- | :--- | :--- |
+| `VITE_API_URL` | The Production Backend URL | `http://localhost:8000` (Dev) |
+
+> **Note:** In development, you don't need to set `VITE_API_URL` as it defaults to localhost. For production (Vercel), you MUST set this.
+
+## 🏗️ Build for Production
+
+To create an optimized production build:
+```bash
+npm run build
+```
+The output will be in the `dist/` folder.
+
+## 📂 Project Structure
+
+*   `src/pages` - Main views (Dashboard, Login, Reports)
+*   `src/components` - Reusable UI elements (Charts, Buttons)
+*   `src/context` - Global state (Language, Currency)
+*   `src/api.js` - Centralized API configuration
+
+## 🛠️ Key Libraries
+*   **Vite:** Build tool
+*   **React Router:** Navigation
+*   **Recharts:** Financial Charts
+*   **Framer Motion:** Animations
+*   **TailwindCSS:** Styling
